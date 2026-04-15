@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>José David López Gento · Representante de los Trabajadores</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --rojo:     #CC0000;
+    --rojo-osc: #8B0000;
+    --negro:    #1A1A1A;
+    --gris-osc: #2D2D2D;
+    --blanco:   #FFFFFF;
+    --texto:    #FFFFFF;
+    --texto-sec: rgba(255,255,255,0.85);
+    --texto-ter: rgba(255,255,255,0.55);
+  }
+
+  html, body {
+    min-height: 100vh;
+    background: var(--negro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Source Sans 3', sans-serif;
+    padding: 24px 16px;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(255,255,255,0.012) 40px, rgba(255,255,255,0.012) 41px),
+      repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(255,255,255,0.012) 40px, rgba(255,255,255,0.012) 41px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .card {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 420px;
+    background: var(--gris-osc);
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.1), 0 20px 60px rgba(0,0,0,0.7), 0 4px 20px rgba(0,0,0,0.5);
+    animation: entrada 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  @keyframes entrada {
+    from { opacity: 0; transform: translateY(20px) scale(0.97); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  .header-band {
+    background: var(--rojo);
+    height: 5px;
+    width: 100%;
+  }
+
+  .header {
+    background: linear-gradient(135deg, #111111 0%, var(--gris-osc) 100%);
+    padding: 24px 28px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  /* Logo CCOO Hábitat */
+  .logo-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo-habitat {
+    height: 36px;
+    width: auto;
+    object-fit: contain;
+    filter: brightness(1.1);
+  }
+
+  .org-sub {
+    font-size: 10px;
+    color: var(--texto-ter);
+    font-weight: 300;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-align: right;
+  }
+
+  /* Nombre */
+  .identity {
+    border-left: 3px solid var(--rojo);
+    padding-left: 14px;
+  }
+
+  .nombre {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    color: var(--texto);
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+    text-transform: uppercase;
+  }
+
+  .nombre span {
+    display: block;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--texto-sec);
+    letter-spacing: 0.04em;
+  }
+
+  /* Cuerpo */
+  .body {
+    padding: 20px 28px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cargo-block {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-left: 3px solid var(--rojo);
+    border-radius: 3px;
+    padding: 10px 14px;
+    margin-bottom: 20px;
+  }
+
+  .cargo-titulo {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    color: var(--texto);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .cargo-empresa {
+    font-size: 12px;
+    color: var(--texto-ter);
+    font-weight: 300;
+    margin-top: 3px;
+  }
+
+  .section { margin-bottom: 16px; }
+
+  .section-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+    margin-bottom: 8px;
+  }
+
+  .contact-list { display: flex; flex-direction: column; gap: 4px; }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    transition: all 0.2s ease;
+  }
+
+  .contact-item:last-child { border-bottom: none; }
+
+  .contact-icon {
+    width: 30px; height: 30px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+  }
+
+  .contact-item:hover .contact-icon {
+    background: rgba(255,255,255,0.15);
+    border-color: rgba(255,255,255,0.3);
+  }
+
+  .contact-icon svg { width: 13px; height: 13px; fill: var(--texto-sec); }
+
+  .contact-text {
+    font-size: 13.5px;
+    color: var(--texto-sec);
+    font-weight: 400;
+    transition: color 0.2s ease;
+    word-break: break-all;
+  }
+
+  .contact-item:hover .contact-text { color: var(--texto); }
+
+  /* Redes */
+  .social-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
+
+  .social-btn {
+    display: flex; align-items: center; gap: 7px;
+    padding: 7px 12px;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 3px;
+    text-decoration: none;
+    background: rgba(255,255,255,0.04);
+    transition: all 0.2s ease;
+    flex: 1; min-width: 110px; justify-content: center;
+  }
+
+  .social-btn:hover { border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.08); }
+  .social-btn svg { width: 13px; height: 13px; fill: var(--texto-ter); flex-shrink: 0; }
+  .social-btn span { font-size: 11px; color: var(--texto-ter); }
+
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.12), transparent);
+    margin: 4px 0 18px;
+  }
+
+  /* Botón guardar  sin JS, enlace data URI */
+  .footer { padding: 0 28px 24px; }
+
+  .btn-vcf {
+    width: 100%;
+    padding: 13px 20px;
+    background: var(--rojo);
+    color: var(--texto);
+    border: none;
+    border-radius: 3px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    position: relative; overflow: hidden;
+  }
+
+  .btn-vcf::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, transparent 100%);
+  }
+
+  .btn-vcf:hover { background: var(--rojo-osc); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,0,0,0.4); }
+  .btn-vcf:active { transform: translateY(0); box-shadow: none; }
+  .btn-vcf svg { width: 16px; height: 16px; fill: white; flex-shrink: 0; }
+
+  .footer-band {
+    background: rgba(255,255,255,0.03);
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding: 8px 28px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+
+  .footer-text {
+    font-size: 9px;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .footer-dot {
+    width: 6px; height: 6px;
+    background: var(--rojo);
+    border-radius: 50%;
+    animation: pulso 2s infinite;
+  }
+
+  @keyframes pulso {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.7); }
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="header-band"></div>
+
+  <div class="header">
+    <div class="logo-row">
+      <img src="data:image/png;base64,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" alt="CCOO Hábitat" class="logo-habitat">
+      <div class="org-sub">Ilunion Seguridad<br>Delegación Sevilla</div>
+    </div>
+
+    <div class="identity">
+      <div class="nombre">
+        José David<br>
+        <span>López Gento</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="cargo-block">
+      <div class="cargo-titulo">Representante Legal de los Trabajadores</div>
+      <div class="cargo-empresa">Comité de Empresa · Ilunion Seguridad S.A.  Sevilla</div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Contacto</div>
+      <div class="contact-list">
+        <a href="tel:+34615892377" class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+          </div>
+          <span class="contact-text">615 892 377</span>
+        </a>
+        <a href="mailto:seccionsindical.ilunion.ccoo@gmail.com" class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </div>
+          <span class="contact-text">seccionsindical.ilunion.ccoo@gmail.com</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <div class="section-label">CCOO Hábitat</div>
+      <div class="social-row">
+        <a href="https://andalucia.ccoo.es" target="_blank" class="social-btn">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+          <span>andalucia.ccoo.es</span>
+        </a>
+        <a href="https://twitter.com/CCOO_Andalucia" target="_blank" class="social-btn">
+          <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.746-8.868L1.254 2.25H8.08l4.261 5.632L18.244 2.25zM17.083 19.77h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg>
+          <span>@CCOO_Andalucia</span>
+        </a>
+        <a href="https://www.facebook.com/CCOOAndalucia" target="_blank" class="social-btn">
+          <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          <span>CCOOAndalucia</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <a href="data:text/vcard;charset=utf-8;base64,QkVHSU46VkNBUkQNClZFUlNJT046My4wDQpGTjpKb3NlIERhdmlkIExvcGV6IEdlbnRvDQpOOkxvcGV6IEdlbnRvO0pvc2UgRGF2aWQ7OzsNCk9SRzpJbHVuaW9uIFNlZ3VyaWRhZCBTLkEuO1NlY2Npb24gU2luZGljYWwgQ0NPTyBIYWJpdGF0DQpUSVRMRTpSZXByZXNlbnRhbnRlIExlZ2FsIGRlIGxvcyBUcmFiYWphZG9yZXMNClRFTDtUWVBFPUNFTEwsVk9JQ0U6KzM0NjE1ODkyMzc3DQpFTUFJTDtUWVBFPVdPUks6c2VjY2lvbnNpbmRpY2FsLmlsdW5pb24uY2Nvb0BnbWFpbC5jb20NCkFEUjtUWVBFPVdPUks6OztDLyBMZW9uYXJkbyBEYSBWaW5jaSAxMztTZXZpbGxhOzs0MTA5MjtFc3BhbmENClVSTDpodHRwczovL2FuZGFsdWNpYS5jY29vLmVzDQpOT1RFOlJMVCAtIENDT08gSGFiaXRhdC4gQ29taXRlIGRlIEVtcHJlc2EgSWx1bmlvbiBTZWd1cmlkYWQgLSBTZXZpbGxhDQpFTkQ6VkNBUkQ=" download="JoseDavid_Lopez_Gento.vcf" class="btn-vcf">
+      <svg viewBox="0 0 24 24"><path d="M19 2H8c-1.1 0-2 .9-2 2v4H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2v-2h5c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM4 20V10h8v10H4zm16-4h-5v-6c0-1.1-.9-2-2-2H8V4h11v12z"/></svg>
+      Guardar contacto
+    </a>
+  </div>
+
+  <div class="footer-band">
+    <span class="footer-text">CCOO Hábitat · Ilunion Seguridad · Sevilla</span>
+    <div class="footer-dot"></div>
+  </div>
+</div>
+
+</body>
+</html>
