@@ -14,35 +14,121 @@
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap');
+  
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  
   :root {
-    --rojo: #CC0000; --rojo-osc: #8B0000; --negro: #1A1A1A;
-    --gris-osc: #2D2D2D; --blanco: #FFFFFF; --texto: #FFFFFF;
-    --texto-sec: rgba(255,255,255,0.85); --texto-ter: rgba(255,255,255,0.55);
+    --rojo: #CC0000; 
+    --rojo-osc: #8B0000; 
+    --negro: #1A1A1A;
+    --gris-osc: #2D2D2D; 
+    --blanco: #FFFFFF; 
+    --texto: #FFFFFF;
+    --texto-sec: rgba(255,255,255,0.85); 
+    --texto-ter: rgba(255,255,255,0.55);
   }
+
   html, body {
-    min-height: 100vh; background: var(--negro);
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Source Sans 3', sans-serif; padding: 24px 16px;
+    min-height: 100vh; 
+    background: var(--negro);
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    font-family: 'Source Sans 3', sans-serif; 
+    padding: 24px 16px;
   }
+
   .card {
-    width: 100%; max-width: 420px; background: var(--gris-osc);
-    border-radius: 4px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+    width: 100%; 
+    max-width: 420px; 
+    background: var(--gris-osc);
+    border-radius: 4px; 
+    overflow: hidden; 
+    box-shadow: 0 20px 60px rgba(0,0,0,0.7);
   }
+
   .header-band { background: var(--rojo); height: 5px; width: 100%; }
+
   .header { padding: 24px 28px 20px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+
   .logo-habitat { height: 40px; margin-bottom: 18px; filter: brightness(1.1); }
-  .nombre { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 26px; color: var(--texto); text-transform: uppercase; line-height: 1.1; border-left: 3px solid var(--rojo); padding-left: 14px; }
+
+  .nombre { 
+    font-family: 'Oswald', sans-serif; 
+    font-weight: 700; 
+    font-size: 26px; 
+    color: var(--texto); 
+    text-transform: uppercase; 
+    line-height: 1.1; 
+    border-left: 3px solid var(--rojo); 
+    padding-left: 14px; 
+  }
+
   .nombre span { font-size: 18px; font-weight: 400; color: var(--texto-sec); }
+
   .body { padding: 20px 28px; }
-  .cargo-block { background: rgba(255,255,255,0.05); border-left: 3px solid var(--rojo); padding: 10px 14px; margin-bottom: 20px; }
-  .cargo-titulo { font-family: 'Oswald', sans-serif; font-size: 12px; color: var(--texto); text-transform: uppercase; }
-  .contact-item { display: flex; align-items: center; gap: 10px; text-decoration: none; padding: 10px 0; color: var(--texto-sec); font-size: 14px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+
+  .cargo-block { 
+    background: rgba(255,255,255,0.05); 
+    border-left: 3px solid var(--rojo); 
+    padding: 10px 14px; 
+    margin-bottom: 20px; 
+  }
+
+  .cargo-titulo { 
+    font-family: 'Oswald', sans-serif; 
+    font-size: 12px; 
+    color: var(--texto); 
+    text-transform: uppercase; 
+  }
+
+  .contact-item { 
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
+    text-decoration: none; 
+    padding: 10px 0; 
+    color: var(--texto-sec); 
+    font-size: 14px; 
+    border-bottom: 1px solid rgba(255,255,255,0.05); 
+  }
+
   .social-row { display: flex; gap: 10px; margin-top: 15px; }
-  .social-btn { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 10px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; text-decoration: none; color: var(--texto-ter); font-size: 12px; }
+
+  .social-btn { 
+    flex: 1; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 8px; 
+    padding: 10px; 
+    background: rgba(255,255,255,0.05); 
+    border: 1px solid rgba(255,255,255,0.1); 
+    border-radius: 4px; 
+    text-decoration: none; 
+    color: var(--texto-ter); 
+    font-size: 12px; 
+  }
+
   .social-btn svg { width: 16px; height: 16px; fill: currentColor; }
+
   .footer { padding: 20px 28px; }
-  .btn-vcf { width: 100%; padding: 14px; background: var(--rojo); color: white; text-decoration: none; border-radius: 4px; display: flex; align-items: center; justify-content: center; gap: 10px; font-family: 'Oswald', sans-serif; text-transform: uppercase; font-size: 14px; }
+
+  .btn-vcf { 
+    width: 100%; 
+    padding: 14px; 
+    background: var(--rojo); 
+    color: white; 
+    text-decoration: none; 
+    border-radius: 4px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 10px; 
+    font-family: 'Oswald', sans-serif; 
+    text-transform: uppercase; 
+    font-size: 14px; 
+  }
 </style>
 </head>
 <body>
@@ -61,7 +147,7 @@
     </div>
 
     <a href="tel:+34615892377" class="contact-item">📞 615 892 377</a>
-    <a href="mailto:seccionsindical.ilunion.ccoo@gmail.com" class="contact-item">✉️ seccionsindical.ilunion...</a>
+    <a href="mailto:seccionsindical.ilunion.ccoo@gmail.com" class="contact-item">✉️ seccionsindical.ilunion.ccoo@gmail.com</a>
 
     <div class="social-row">
       <a href="https://www.facebook.com/ccooandalucia" target="_blank" class="social-btn">
@@ -70,7 +156,7 @@
       </a>
       <a href="https://x.com/CCOO_Andalucia" target="_blank" class="social-btn">
         <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.746-8.868L1.254 2.25H8.08l4.261 5.632L18.244 2.25z"/></svg>
-        <span>X</span>
+        <span>X (Twitter)</span>
       </a>
     </div>
   </div>
